@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Jeun Agustero, Creative Strategist</title>
+<meta name="description" content="Meta creative strategist. Research, angles, hooks, scripts and briefs, judged on revenue. $3.5M+ in managed Meta ad spend.">
+<style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;padding:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: a creative test log. Hero pairs the thesis with a live-looking ad card; each case is a test card (bet, build, read, learning) on a cool paper ground. */
+:root{
+  --paper:#F2F4F7; --sheet:#FFFFFF; --ink:#141A2E; --muted:#58607A; --rule:#D9DEE8;
+  --accent:#2F49E8; --accent-soft:#E6EAFF; --win:#C98A00; --win-soft:#FFF3D6; --loss:#B4452F; --loss-soft:#FBE9E4;
+  --display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --body:"Newsreader", Georgia, "Times New Roman", serif;
+  --mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0F1322; --sheet:#171C2F; --ink:#E9ECF5; --muted:#9AA3BD; --rule:#2A3150;
+  --accent:#8C9DFF; --accent-soft:#232B52; --win:#F2B935; --win-soft:#3A3013; --loss:#F08C74; --loss-soft:#3B221C; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0F1322; --sheet:#171C2F; --ink:#E9ECF5; --muted:#9AA3BD; --rule:#2A3150;
+  --accent:#8C9DFF; --accent-soft:#232B52; --win:#F2B935; --win-soft:#3A3013; --loss:#F08C74; --loss-soft:#3B221C; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;letter-spacing:-.01em}
+p{margin:0}
+.label{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.num{font-variant-numeric:tabular-nums}
+
+/* Top bar */
+.top{padding-block:22px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.top .name{font-family:var(--display);font-weight:700;font-size:18px}
+.top nav{display:flex;gap:18px;flex-wrap:wrap;font-family:var(--mono);font-size:13px}
+.top nav a{color:var(--muted);text-decoration:none}
+.top nav a:hover{color:var(--accent)}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.85fr);gap:56px;align-items:center;padding-block:36px 64px}
+.hero h1{font-size:clamp(40px,6vw,72px);line-height:1.02;font-weight:800}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero .lede{margin-top:22px;font-size:21px;max-width:34em;color:var(--ink)}
+.hero .role{margin-bottom:18px}
+.stats{margin-top:32px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--rule)}
+.stats div{padding:16px 16px 0 0}
+.stats b{display:block;font-family:var(--display);font-size:30px;font-weight:700;line-height:1.1}
+.stats span{font-size:15px;color:var(--muted);display:block;margin-top:4px}
+
+/* Ad card in hero */
+.adcard{background:var(--sheet);border:1px solid var(--rule);border-radius:18px;box-shadow:0 18px 50px -24px rgba(20,26,46,.35);overflow:hidden;max-width:380px;justify-self:end;width:100%}
+.adcard .head{display:flex;gap:10px;align-items:center;padding:14px 16px}
+.adcard .av{width:34px;height:34px;border-radius:50%;background:var(--accent-soft);display:grid;place-items:center;font-family:var(--display);font-weight:700;color:var(--accent);font-size:14px}
+.adcard .who{font-family:var(--display);font-size:14px;font-weight:700;line-height:1.2}
+.adcard .who small{display:block;font-family:var(--mono);font-weight:400;color:var(--muted);font-size:11px}
+.adcard .copy{padding:0 16px 14px;font-size:16px;line-height:1.45}
+.adcard .creative{margin:0 16px;border-radius:10px;background:var(--accent);color:#fff;padding:26px 20px;font-family:var(--display);font-weight:800;font-size:25px;line-height:1.12}
+.adcard .creative small{display:block;margin-top:12px;font-family:var(--body);font-weight:400;font-size:15px;opacity:.9}
+.adcard .metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--rule);margin-top:16px}
+.adcard .metrics div{padding:12px 14px;border-right:1px solid var(--rule)}
+.adcard .metrics div:last-child{border-right:0}
+.adcard .metrics b{display:block;font-family:var(--mono);font-size:16px;font-weight:600}
+.adcard .metrics span{font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.adcard .tag{padding:10px 16px 14px;font-family:var(--mono);font-size:11px;color:var(--muted)}
+
+/* Sections */
+section{padding-block:64px;border-top:1px solid var(--rule)}
+.sechead{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:40px;margin-bottom:36px;align-items:end}
+.sechead h2{font-size:clamp(30px,4vw,44px);font-weight:800;line-height:1.05}
+.sechead p{color:var(--muted);font-size:18px;max-width:38em}
+
+/* Loop */
+.loop{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;counter-reset:step}
+.loop li{list-style:none;background:var(--sheet);border:1px solid var(--rule);border-radius:12px;padding:16px;counter-increment:step;min-width:0}
+.loop li::before{content:counter(step,decimal-leading-zero);font-family:var(--mono);font-size:12px;color:var(--accent);display:block;margin-bottom:10px}
+.loop h3{font-size:18px;font-weight:700;margin-bottom:6px}
+.loop p{font-size:15px;line-height:1.45;color:var(--muted)}
+.loop{padding:0;margin:0}
+
+/* Test cards */
+.cards{display:grid;gap:28px}
+.card{background:var(--sheet);border:1px solid var(--rule);border-radius:16px;padding:32px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:36px}
+.card .meta{display:flex;flex-wrap:wrap;gap:8px 14px;margin-bottom:14px}
+.card h3{font-size:clamp(24px,3vw,32px);font-weight:700;line-height:1.1;margin-bottom:14px}
+.card .hook{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.25;border-left:3px solid var(--accent);padding-left:14px;margin:18px 0}
+.card .steps{display:grid;gap:14px}
+.card .steps div{display:grid;grid-template-columns:92px minmax(0,1fr);gap:12px;font-size:16.5px;line-height:1.5}
+.card .steps .label{padding-top:3px}
+.figs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-content:start}
+.fig{border-radius:10px;padding:14px 16px;background:var(--paper)}
+.fig b{display:block;font-family:var(--display);font-size:26px;font-weight:700;line-height:1.1}
+.fig span{display:block;font-size:14px;color:var(--muted);margin-top:4px;line-height:1.35}
+.fig.win{background:var(--win-soft)}
+.fig.win b{color:var(--win)}
+.fig.wide{grid-column:1/-1}
+.learn{grid-column:1/-1;margin-top:4px;padding:16px 18px;border-radius:10px;background:var(--accent-soft);font-size:17px}
+.learn .label{color:var(--accent);display:block;margin-bottom:4px}
+.caveat{grid-column:1/-1;font-size:15px;color:var(--muted);font-style:italic}
+
+/* Bars */
+.bars{display:grid;gap:10px;margin-top:4px}
+.bar{display:grid;grid-template-columns:92px minmax(0,1fr) 72px;gap:10px;align-items:center;font-family:var(--mono);font-size:13px}
+.bar .track{height:12px;background:var(--paper);border-radius:6px;overflow:hidden}
+.bar .fill{height:100%;background:var(--accent);border-radius:6px}
+.bar .fill.lose{background:var(--loss)}
+.bar .v{text-align:right;font-variant-numeric:tabular-nums}
+.chartnote{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin-top:6px}
+
+/* Losses list */
+.losses{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;grid-column:1/-1}
+.losses div{border:1px solid var(--rule);border-radius:10px;padding:14px 16px;font-size:15.5px;line-height:1.45}
+.losses b{display:block;font-family:var(--display);font-size:22px;color:var(--loss);margin-bottom:4px}
+
+/* Scale strip */
+.scale{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.scale .card{grid-template-columns:1fr;gap:18px}
+
+/* Toolkit */
+.kit{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.kit h3{font-size:19px;font-weight:700;margin-bottom:8px}
+.kit p{font-size:16.5px;color:var(--muted)}
+.straight{margin-top:36px;padding:22px 24px;border:1px dashed var(--rule);border-radius:12px;font-size:16.5px}
+.straight ul{margin:8px 0 0;padding-left:20px;display:grid;gap:6px}
+
+/* Contact */
+.contact{display:flex;flex-wrap:wrap;gap:20px 40px;align-items:center;justify-content:space-between}
+.contact h2{font-size:clamp(30px,4.5vw,52px);font-weight:800;max-width:14em;line-height:1.05}
+.contact .lines{display:grid;gap:10px;font-family:var(--mono);font-size:15px}
+.copyrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.copyrow button{font-family:var(--mono);font-size:12px;border:1px solid var(--rule);background:var(--sheet);color:var(--ink);border-radius:6px;padding:5px 10px;cursor:pointer}
+.copyrow button:hover{border-color:var(--accent);color:var(--accent)}
+footer{padding-block:28px;font-family:var(--mono);font-size:12px;color:var(--muted);border-top:1px solid var(--rule)}
+
+
+/* Work samples */
+.sample{background:var(--sheet);border:1px solid var(--rule);border-radius:16px;padding:32px;display:grid;gap:22px;min-width:0}
+.sample h3{font-size:clamp(22px,2.6vw,28px);font-weight:700;line-height:1.15}
+.sample .intro{font-size:17px;color:var(--muted);max-width:44em}
+.sample dl{display:grid;grid-template-columns:120px minmax(0,1fr);gap:10px 16px;margin:0;font-size:16.5px;line-height:1.5}
+.sample dt{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.sample dd{margin:0}
+.tbl{overflow-x:auto;border:1px solid var(--rule);border-radius:10px}
+.tbl table{border-collapse:collapse;width:100%;min-width:560px;font-size:15.5px;line-height:1.45}
+.tbl th{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:left;font-weight:400;background:var(--paper)}
+.tbl th,.tbl td{padding:10px 14px;border-bottom:1px solid var(--rule);vertical-align:top}
+.tbl tr:last-child td{border-bottom:0}
+.tbl td.line{font-family:var(--display);font-weight:500;font-size:16px}
+.tbl td.k{font-family:var(--mono);font-size:13px;color:var(--accent);white-space:nowrap}
+.cta{padding:14px 18px;border-radius:10px;background:var(--accent-soft);font-size:16.5px}
+.cta .label{color:var(--accent);display:block;margin-bottom:4px}
+.twocol{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.twocol>div{min-width:0;display:grid;gap:10px;align-content:start}
+.twocol ul{margin:0;padding-left:20px;display:grid;gap:6px;font-size:16.5px}
+.samples{display:grid;gap:28px}
+.sample .meta{display:flex;flex-wrap:wrap;gap:8px 14px}
+@media (max-width:900px){.sample{padding:22px}.twocol{grid-template-columns:1fr}}
+@media (max-width:480px){.sample dl{grid-template-columns:1fr;gap:2px}.sample dd{margin-bottom:8px}}
+
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;gap:36px}
+  .adcard{justify-self:start}
+  .sechead{grid-template-columns:1fr;gap:12px}
+  .loop{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .card{grid-template-columns:1fr;padding:22px}
+  .scale{grid-template-columns:1fr}
+  .kit{grid-template-columns:1fr}
+  .losses{grid-template-columns:1fr}
+}
+@media (max-width:480px){
+  body{font-size:17px}
+  .stats{grid-template-columns:1fr 1fr}
+  .stats div:last-child{grid-column:1/-1}
+  .card .steps div{grid-template-columns:1fr;gap:2px}
+  .figs{grid-template-columns:1fr 1fr}
+  .bar{grid-template-columns:76px minmax(0,1fr) 64px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .bar .fill{animation:grow .9s ease-out both}
+  @keyframes grow{from{transform:scaleX(.15);transform-origin:left}to{transform:scaleX(1);transform-origin:left}}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="name">Jeun Agustero</div>
+    <nav aria-label="Sections">
+      <a href="#method">Method</a>
+      <a href="#work">Creative work</a>
+      <a href="#samples">Samples</a>
+      <a href="#scale">At scale</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <div>
+      <p class="label role">Meta Creative Strategist · DTC ecommerce · Davao City, PH</p>
+      <h1>I find the angle <em>before</em> I make the ad.</h1>
+      <p class="lede">Six years on Meta, with the media buying and the creative strategy in the same pair of hands. I research what buyers want, turn it into concepts, angles and hooks, write and build the ads, then read the results on numbers I trust, because I set up the tracking too.</p>
+      <div class="stats">
+        <div><b class="num">$3.5M+</b><span>verified managed ad spend</span></div>
+        <div><b class="num">~$196K</b><span>a month on my largest DTC account today</span></div>
+        <div><b class="num">5.9x</b><span>growth on a DTC account in ten months</span></div>
+      </div>
+    </div>
+
+    <figure class="adcard" aria-label="Example: one of my winning ads, with its results">
+      <div class="head">
+        <div class="av">PI</div>
+        <div class="who">US personal injury firm<small>Sponsored · static, long story copy</small></div>
+      </div>
+      <p class="copy">Mike waited a whole year after his crash. He figured it was too late to do anything about it. Then he checked.</p>
+      <div class="creative">"I thought it was too late… until I checked."<small>Story framework: one named person, one objection, one next step.</small></div>
+      <div class="metrics">
+        <div><b class="num">$86.2K</b><span>Spend</span></div>
+        <div><b class="num">1,302</b><span>Applications</span></div>
+        <div><b class="num">$66.20</b><span>Per app</span></div>
+      </div>
+      <figcaption class="tag">Illustration of the ad's hook and structure. Body copy paraphrased. Results are real, Jan to Nov 2025.</figcaption>
+    </figure>
+  </div>
+</div>
+
+<section id="method">
+  <div class="wrap">
+    <div class="sechead">
+      <h2>How I build creative</h2>
+      <p>The same loop on every account. The order matters: most weak ads I audit skipped straight to step four.</p>
+    </div>
+    <ol class="loop">
+      <li><h3>Research</h3><p>Reviews, comments, competitors and the Ad Library. What buyers want, in their words.</p></li>
+      <li><h3>Diagnose</h3><p>Market desire, sophistication and awareness. Where the buyer is decides what the ad has to do.</p></li>
+      <li><h3>Concept</h3><p>Persona, desire and offer. One clear bet per concept, so a result teaches something.</p></li>
+      <li><h3>Angle and hook</h3><p>Several ways in, each with its own hook, all feeding one body.</p></li>
+      <li><h3>Build</h3><p>I write the copy and brief or build the asset: statics, UGC-style and AI video, carousels.</p></li>
+      <li><h3>Read and iterate</h3><p>Hook rate, hold rate, conversion rate, cost per result. Then iterate the winner.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sechead">
+      <h2>Creative work</h2>
+      <p>Each one is written as a test: the bet, what I built, what the numbers said, and what I took from it. Client names are withheld except where the work is already public.</p>
+    </div>
+
+    <div class="cards">
+
+      <article class="card">
+        <div>
+          <div class="meta"><span class="label">Pet products DTC</span><span class="label">US, AU, CA, UK</span><span class="label">2026</span></div>
+          <h3>Split the account by the problem, not the product</h3>
+          <p class="hook">"When two cats are fighting, the whole house feels it."</p>
+          <div class="steps">
+            <div><span class="label">The bet</span><p>Owners buy for a specific problem at home. Prospecting split into problem angles, such as cats fighting and cats peeing, each with its own creative and campaign.</p></div>
+            <div><span class="label">Built</span><p>Video per angle. The fighting ads used a real creator and opened on the tension in the house, not the product.</p></div>
+            <div><span class="label">The read</span><p>The fighting angle had the lowest hook rate of any prospecting campaign and the highest purchase conversion rate outside retargeting.</p></div>
+          </div>
+        </div>
+        <div class="figs">
+          <div class="fig win"><b class="num">1.94</b><span>ROAS, fighting angle, Jun to Aug 2026</span></div>
+          <div class="fig"><b class="num">1.62</b><span>ROAS, peeing angle, same period</span></div>
+          <div class="fig"><b class="num">13.83%</b><span>Hook rate, fighting</span></div>
+          <div class="fig"><b class="num">22.37%</b><span>Hook rate, peeing</span></div>
+          <div class="learn"><span class="label">What I took from it</span>A hook rate leaderboard would have cut the angle that sold best. I treat hook rate as a diagnostic for the first three seconds, not a verdict on the ad.</div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div>
+          <div class="meta"><span class="label">US personal injury firm</span><span class="label">Lead gen</span><span class="label">2025</span></div>
+          <h3>A story ad that carried 27% of the spend</h3>
+          <p class="hook">"I thought it was too late… until I checked."</p>
+          <div class="steps">
+            <div><span class="label">The bet</span><p>The biggest objection in this market is "too much time has passed". Answer it with one named person who waited and still qualified.</p></div>
+            <div><span class="label">Built</span><p>I wrote the angle and the story structure: a static with long copy, then objection handling for "it was months ago" and "I never called a lawyer". I wrote the copy myself and used AI to produce the image.</p></div>
+            <div><span class="label">The read</span><p>First test: $3,187.85 at $49.04 per application. Scaled 27x. Cost per application rose 35% on the way up and still finished 14.4% under the account average.</p></div>
+          </div>
+        </div>
+        <div class="figs">
+          <div class="fig win"><b class="num">$86,194</b><span>spend on one ad, 27.1% of all application spend</span></div>
+          <div class="fig"><b class="num">1,302</b><span>applications at $66.20 each</span></div>
+          <div class="fig wide">
+            <span class="label">Cost per application by copy framework, 85 ads, $317,927 spend</span>
+            <div class="bars" role="img" aria-label="Cost per application: STAR $72.33, BAB $74.97, no framework $76.28, 4Ps $101.12, PAS $113.18">
+              <div class="bar"><span>STAR</span><div class="track"><div class="fill" style="width:63.9%"></div></div><span class="v">$72.33</span></div>
+              <div class="bar"><span>BAB</span><div class="track"><div class="fill" style="width:66.2%"></div></div><span class="v">$74.97</span></div>
+              <div class="bar"><span>None</span><div class="track"><div class="fill" style="width:67.4%"></div></div><span class="v">$76.28</span></div>
+              <div class="bar"><span>4Ps</span><div class="track"><div class="fill lose" style="width:89.3%"></div></div><span class="v">$101.12</span></div>
+              <div class="bar"><span>PAS</span><div class="track"><div class="fill lose" style="width:100%"></div></div><span class="v">$113.18</span></div>
+            </div>
+            <p class="chartnote">Shorter bar is cheaper. 4Ps ran mostly on motion video, so format is mixed into that gap.</p>
+          </div>
+        </div>
+        <div class="losses">
+          <div><b class="num">+47% to +272%</b>Relaunching a past winner. Five relaunches all cost more per application than the original, even with cheaper CPMs.</div>
+          <div><b class="num">+74%</b>The same story framework on video instead of static. STAR video cost $116.81 per application against $67.18 on static.</div>
+          <div><b class="num">+37%</b>Same copy, newer video. A 2x higher click-through rate and still a worse cost per application. Directional, small sample.</div>
+        </div>
+        <p class="caveat">The losses are on the page on purpose. Knowing what not to repeat is half of a creative strategy.</p>
+      </article>
+
+      <article class="card">
+        <div>
+          <div class="meta"><span class="label">US legal claim intake</span><span class="label">Built from zero</span><span class="label">Apr to Sep 2026</span></div>
+          <h3>Every ad written by me, produced with AI, judged on signed cases</h3>
+          <div class="steps">
+            <div><span class="label">The bet</span><p>Parents searching for help need to qualify themselves in the ad. Self-qualifying copy would cut wasted leads before the form.</p></div>
+            <div><span class="label">Built</span><p>I wrote every ad myself and used AI to produce the assets: statics and UGC-style video. The top six ads ran the same self-qualifying copy with different visuals.</p></div>
+            <div><span class="label">The read</span><p>Video and image ad sets landed six cents apart on cost per lead, so format was not what moved results. The best single ad was an AI UGC video.</p></div>
+          </div>
+        </div>
+        <div class="figs">
+          <div class="fig win"><b class="num">$31.67</b><span>cost per lead on the best AI UGC video, over $7,536 spend</span></div>
+          <div class="fig"><b class="num">$55.43</b><span>account average cost per lead</span></div>
+          <div class="fig"><b class="num">449</b><span>signed cases from 3,682 leads</span></div>
+          <div class="fig"><b class="num">$458.55</b><span>cost per signed case, all spend included</span></div>
+          <div class="learn"><span class="label">What I took from it</span>Cost per lead is the wrong scoreboard. July had a worse cost per lead than June and the best month on signed cases: $363.80 each.</div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div>
+          <div class="meta"><span class="label">Coaching brand for mothers</span><span class="label">Lead gen</span><span class="label">2026</span></div>
+          <h3>Six hooks, one body, and a second look at the losers</h3>
+          <div class="steps">
+            <div><span class="label">The bet</span><p>Test six hooks on one body copy, so the hook is the only thing that changes.</p></div>
+            <div><span class="label">Built</span><p>Phase one ran all six together. Meta put 79% of the spend behind one hook. Phase two gave the starved hooks their own budget.</p></div>
+            <div><span class="label">The read</span><p>One hook that got $53.88 in phase one spent $282.85 in phase two and brought 99 leads at $2.86 each.</p></div>
+          </div>
+        </div>
+        <div class="figs">
+          <div class="fig"><b class="num">$4.42</b><span>cost per lead, phase one, 482 leads</span></div>
+          <div class="fig win"><b class="num">$3.66</b><span>cost per lead, phase two, 226 leads</span></div>
+          <div class="learn"><span class="label">What I took from it</span>When Meta picks a winner early, the hooks it skipped have not lost. They have not been tested. I budget for a second look.</div>
+          <p class="caveat">No sales data on this account, so this is a cost per lead result only.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div>
+          <div class="meta"><span class="label">Webinar funnel, wellness</span><span class="label">Lead gen</span><span class="label">May to Sep 2026</span></div>
+          <h3>Concepts beat hooks, measured on real sign-ups</h3>
+          <div class="steps">
+            <div><span class="label">The bet</span><p>A new concept changes who stops scrolling. A new hook on the same concept mostly changes who clicks.</p></div>
+            <div><span class="label">Built</span><p>Ran concept-led ad sets against hook-led ones, and moved the tracking to GTM and Stape, because Ads Manager was reporting 891 sign-ups where the funnel's own sheet had 646.</p></div>
+            <div><span class="label">The read</span><p>On real sign-ups, concept-led ad sets cost 28% less per sign-up than hook-led ones.</p></div>
+          </div>
+        </div>
+        <div class="figs">
+          <div class="fig win"><b class="num">$9.33</b><span>per real sign-up, concept-led</span></div>
+          <div class="fig"><b class="num">$12.96</b><span>per real sign-up, hook-led</span></div>
+          <div class="fig wide"><b class="num">$6.24</b><span>per real sign-up on the best single concept</span></div>
+          <p class="caveat">Sign-ups did not turn into sales: 13 front-end sales in five months. The next test belongs on the offer and the follow-up, not the ads.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div>
+          <div class="meta"><span class="label">Great Wrap · Build a Head</span><span class="label">DTC, at BrighterClick</span><span class="label">2022 to 2023</span></div>
+          <h3>Messaging rebuilt for the market, not translated</h3>
+          <div class="steps">
+            <div><span class="label">Great Wrap</span><p>Taking an Australian packaging brand into the US. I ran fresh US research instead of assuming Australian angles would carry, rebuilt the messaging, and ran awareness before asking for the sale.</p></div>
+            <div><span class="label">Build a Head</span><p>A seasonal custom print brand. I tested against occasions rather than audiences, including small regional ones, and switched messaging on every seasonal change before results decayed.</p></div>
+          </div>
+        </div>
+        <div class="figs">
+          <div class="fig win"><b class="num">+993%</b><span>Great Wrap revenue, first three months, CPA held at AUD $8</span></div>
+          <div class="fig"><b class="num">AUD $24M</b><span>Series A the brand raised afterwards</span></div>
+          <div class="fig win"><b class="num">+2,185%</b><span>Build a Head ad spend</span></div>
+          <div class="fig"><b class="num">+203.73%</b><span>Build a Head ROAS over the same scale-up</span></div>
+          <p class="caveat">Both are published at brighterclick.com and can be checked independently.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="samples">
+  <div class="wrap">
+    <div class="sechead">
+      <h2>Work samples</h2>
+      <p>The written work behind the results, shown in full. This set is a spec pitch I wrote for a US attic insulation company in Dallas-Fort Worth. It has not run yet, so there are no results here, only the research, the strategy and the copy.</p>
+    </div>
+
+    <div class="samples">
+
+      <article class="sample">
+        <div class="meta"><span class="label">Research and creative brief</span><span class="label">US home services</span><span class="label">Oct 2026</span></div>
+        <h3>Start from the account, then pick the gaps</h3>
+        <p class="intro">I audited 90 days of the company's Meta ads before writing a word. One lead form campaign had brought in 107 leads at $20.16 each. About 95% of delivery ran one piece of primary text. No customer ever spoke in an ad, nothing explained why the price was worth it, and a summer heat message was still running in October.</p>
+        <div class="tbl">
+          <table>
+            <thead><tr><th>Brief</th><th>Gap it fills</th><th>Persona</th><th>Voice</th><th>Awareness</th></tr></thead>
+            <tbody>
+              <tr><td class="line">Real Homeowner, Real Attic</td><td>No customer proof</td><td>Hot upstairs, AC never stops</td><td>Customer</td><td>Problem-aware</td></tr>
+              <tr><td class="line">Before You Buy a New AC</td><td>No cost justification</td><td>Bill shocked, thinks the AC is dying</td><td>Expert (company tech)</td><td>Problem-aware to solution-aware</td></tr>
+              <tr><td class="line">The Same Attic, All Winter</td><td>Wrong seasonal trigger</td><td>Pre-winter planner</td><td>Founder</td><td>Solution-aware</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="caveat">The offer stays exactly as the client runs it today: a free attic inspection with photos, a straight number, one-day install for most homes, and $500 off when booked this month. Every brief is written at a 5th-grade reading level.</p>
+      </article>
+
+      <article class="sample">
+        <div class="meta"><span class="label">Direct-response video script</span><span class="label">Expert voice</span><span class="label">3 hooks, 1 body</span></div>
+        <h3>Before You Buy a New AC</h3>
+        <dl>
+          <dt>Hypothesis</dt><dd>Homeowners who think their AC is failing are about to spend big. Framing the free inspection as the smart check before an AC replacement should bring in higher-intent leads and give the $500 off a clear reason to matter.</dd>
+          <dt>Persona</dt><dd>A DFW homeowner whose AC runs nonstop and whose bill keeps rising. They have an AC quote or are about to ask for one. They blame the AC.</dd>
+          <dt>Angle</dt><dd>Reframe plus cost contrast. The AC is not broken, it is outnumbered. A new AC under the same attic faces the same heat.</dd>
+          <dt>Format</dt><dd>Phone-shot demo. A company tech walks from the outdoor unit up into the attic and explains on the way.</dd>
+        </dl>
+        <div class="tbl">
+          <table>
+            <thead><tr><th>Hook</th><th>Line</th><th>Visual</th></tr></thead>
+            <tbody>
+              <tr><td class="k">H1</td><td class="line">"Before you replace this... check up there."</td><td>Tech taps the outdoor AC unit, then tilts the camera up at the roof.</td></tr>
+              <tr><td class="k">H2</td><td class="line">"Got an AC quote this summer? Watch this first."</td><td>Tech with a clipboard in a driveway, talking to camera.</td></tr>
+              <tr><td class="k">H3</td><td class="line">"Your AC might not be broken. It might be outnumbered."</td><td>Tech on the attic ladder, half inside the hatch.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tbl">
+          <table>
+            <thead><tr><th>Shared body script</th><th>Visual direction</th></tr></thead>
+            <tbody>
+              <tr><td class="line">"Here's what most DFW homeowners never get told."</td><td>Tech climbing the ladder.</td></tr>
+              <tr><td class="line">"In summer, an attic around here sits around 150 degrees."</td><td>Inside the attic. On-screen text: "About 150°F up here in summer."</td></tr>
+              <tr><td class="line">"If the insulation up here has gone flat, or was never enough, that heat pushes down into your rooms all day."</td><td>Tech presses a hand into flat, thin insulation. Close-up.</td></tr>
+              <tr><td class="line">"Your AC isn't broken. It's outnumbered. It's fighting this attic all day long."</td><td>Cut to the AC unit running outside.</td></tr>
+              <tr><td class="line">"So before you pay for a new AC, let us come look. It's free."</td><td>Tech back on the ground, talking to camera.</td></tr>
+              <tr><td class="line">"We take photos. You see what's up here. You get a straight number."</td><td>Tech showing inspection photos on a phone.</td></tr>
+              <tr><td class="line">"And if it doesn't need work, we tell you that too."</td><td>Tech shrugs. Honest tone.</td></tr>
+              <tr><td class="line">"Most homes we do take one day."</td><td>Quick crew footage from a real job.</td></tr>
+              <tr><td class="line">"Family owned, 15 years, 2,500 DFW homes."</td><td>Truck, logo, crew.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="cta"><span class="label">CTA</span>"Tap below. Answer a few quick questions. $500 off if you book this month." A price comparison line stays out until the client confirms both real numbers.</p>
+      </article>
+
+      <article class="sample">
+        <div class="meta"><span class="label">UGC concept and static</span><span class="label">Customer voice</span></div>
+        <h3>Real Homeowner, Real Attic</h3>
+        <dl>
+          <dt>Hypothesis</dt><dd>A real DFW homeowner showing their own attic photos will lower lead cost and lift lead quality against company-voice ads, because proof from a neighbor beats a claim from a contractor.</dd>
+          <dt>Concept</dt><dd>"Here is what was in my attic." A phone-filmed interview in the customer's home, cut with their real before and after inspection photos.</dd>
+          <dt>Rule</dt><dd>Customer lines are not scripted. I write the questions, we keep the best real answers, and we get written consent for name, face, home and photos.</dd>
+        </dl>
+        <div class="twocol">
+          <div>
+            <span class="label">Hooks</span>
+            <ul>
+              <li>On-screen: "We went back to a house we fixed [X] weeks ago. We asked one question."</li>
+              <li>Off camera: "What was this room like in August?" Customer answers in the room that used to be hot.</li>
+              <li>On-screen: "This was [name]'s attic. This is it now." Hard cut, before photo to after photo.</li>
+            </ul>
+            <span class="label">Interview prompts</span>
+            <ul>
+              <li>What made you call?</li>
+              <li>What did you think when you saw the attic photos?</li>
+              <li>What did you notice that first night?</li>
+              <li>What would you tell a neighbor?</li>
+            </ul>
+          </div>
+          <div>
+            <span class="label">Static: review card</span>
+            <ul>
+              <li>Headline options: "See what was in [name]'s attic." / "2,500 DFW homes. Here's one of them." / "Your neighbor checked the attic. Here's what we found."</li>
+              <li>Real before photo left, after photo right, large.</li>
+              <li>Review card in the lower third: customer photo, five stars, one real review line of 12 words or fewer.</li>
+              <li>The actual attic, never stock. Logo small in the corner.</li>
+              <li>Button: "Free Attic Check", with "$500 off this month" under it.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="caveat">Each full brief also carries a hook check (clear, connected, curious, concrete, credible) and a QC gate before it goes to production. Full briefs available on request.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="scale">
+  <div class="wrap">
+    <div class="sechead">
+      <h2>The accounts the creative runs in</h2>
+      <p>Creative strategy only counts if it holds up when the budget moves. These are the two DTC accounts I run today.</p>
+    </div>
+    <div class="scale">
+      <article class="card">
+        <div class="meta"><span class="label">Pet supplies DTC</span><span class="label">Took over Sep 2025</span></div>
+        <h3>$173K a year before me. $1.03M in my first ten months.</h3>
+        <div class="figs">
+          <div class="fig win"><b class="num">5.9x</b><span>spend, with revenue up 5.7x</span></div>
+          <div class="fig"><b class="num">−32%</b><span>cost per purchase, $51.09 to $34.66</span></div>
+          <div class="fig"><b class="num">29,779</b><span>purchases in my tenure</span></div>
+          <div class="fig"><b class="num">$1.93M</b><span>revenue in my tenure</span></div>
+        </div>
+        <p class="caveat">Efficiency softened once spend held above $130K a month: 1.56 ROAS from March to June 2026.</p>
+      </article>
+      <article class="card">
+        <div class="meta"><span class="label">Pet products DTC</span><span class="label">Since Jun 2026</span></div>
+        <h3>About $196K a month, read on incremental results</h3>
+        <div class="figs">
+          <div class="fig"><b class="num">22.34%</b><span>hook rate across the account, Jun to Aug 2026</span></div>
+          <div class="fig"><b class="num">6.04%</b><span>hold rate, same period</span></div>
+          <div class="fig win"><b class="num">4,182</b><span>incremental purchases of 4,652 reported, last 30 days on record</span></div>
+          <div class="fig"><b class="num">1.63</b><span>ROAS on $195,848 spend, 1.4x incremental</span></div>
+        </div>
+        <p class="caveat">A volume account. 1.6 ROAS works on this brand's margin and AOV; it is not a 3x account.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sechead">
+      <h2>What I bring to a creative team</h2>
+      <p>The strategist who can also read the account, so the next brief comes from the data and not from a hunch.</p>
+    </div>
+    <div class="kit">
+      <div><h3>Research and strategy</h3><p>Customer language banks from reviews and comments, competitor and Ad Library teardowns, awareness mapping, concept and angle shortlists with the reasoning attached.</p></div>
+      <div><h3>Copy and production</h3><p>Direct response copy for statics, carousels, UGC and video. Briefs for designers and editors. AI statics and AI UGC-style video when speed matters.</p></div>
+      <div><h3>Testing and measurement</h3><p>Hypothesis-led tests with a named variable, naming conventions that make reports read like a test log, and Pixel plus Conversions API set up so the results are real.</p></div>
+    </div>
+    <div class="straight">
+      <span class="label">Straight answers</span>
+      <ul>
+        <li>The largest account I run personally is about $196K a month. I have not held $300K+ a month on one account yet.</li>
+        <li>I have briefed designers and editors, but I have not run a UGC creator pipeline end to end.</li>
+        <li>Meta is my channel. I have tested on TikTok but do not claim it as a strength.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact">
+    <h2>Send me the brand. I'll start with the research.</h2>
+    <div class="lines">
+      <div class="copyrow"><span id="email">jgagustero@gmail.com</span><button type="button" id="copy-email">Copy</button></div>
+      <a href="https://www.linkedin.com/in/jeunagustero" target="_blank" rel="noopener">linkedin.com/in/jeunagustero</a>
+      <span class="label">Full case studies and account screenshots on request</span>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><footer>Figures are spend I personally managed, from Ads Manager, unless marked as client-reported. Updated October 2026.</footer></div>
+
+<script>
+document.getElementById('copy-email').addEventListener('click', function(){
+  var btn=this, text=document.getElementById('email').textContent;
+  function done(){btn.textContent='Copied';setTimeout(function(){btn.textContent='Copy'},1600)}
+  function select(){var r=document.createRange();r.selectNodeContents(document.getElementById('email'));var s=window.getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='Selected'}
+  try{navigator.clipboard.writeText(text).then(done,select)}catch(e){select()}
+});
+</script>
+</body>
+</html>
